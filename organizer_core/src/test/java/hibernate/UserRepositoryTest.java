@@ -1,9 +1,9 @@
 package hibernate;
 
 import static org.junit.Assert.assertNotNull;
-import hibernate.entities.Person;
-import hibernate.entities.UserEvent;
-import hibernate.repositories.OrganizerRepository;
+import hibernate.entities.EventEntitie;
+import hibernate.entities.UserEntitie;
+import hibernate.repositories.UserRepository;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -22,21 +22,29 @@ import common.EventTypeE;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:META-INF/application-context.xml")
 //@ContextConfiguration(locations="classpath:META-INF/test-context.xml")
-public class OrganizerRepositoryTest {
+public class UserRepositoryTest {
 
 	@Autowired
-	OrganizerRepository repository;
+	UserRepository userRepository;
 	
+	public UserRepository getUserRepository() {
+		return userRepository;
+	}
+
+	public void setUserRepository(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+
 	@Test
 	public void InsertUser() {
 		
-		Person user = new Person();
+		UserEntitie user = new UserEntitie();
 		user.setName("Szymon");
 		user.setSurname("Stefan");
 		
-		repository.save(user);
+		userRepository.save(user);
 		
-		Person dbpost = repository.findOne(user.getUserId());
+		UserEntitie dbpost = userRepository.findOne(user.getUserId());
 		assertNotNull(dbpost);
 		System.out.println(dbpost.getUserId()+" "+dbpost.getName()+" "+dbpost.getSurname());
 	}
@@ -44,12 +52,12 @@ public class OrganizerRepositoryTest {
 	@SuppressWarnings("deprecation")
 	@Test
 	public void InsertUserEvent() {
-		Person user = new Person();
+		UserEntitie user = new UserEntitie();
 		user.setName("Hakuna");
 		user.setSurname("Matata");
 		
-		Set<UserEvent> events = new HashSet<UserEvent>();
-		UserEvent event = new UserEvent();
+		Set<EventEntitie> events = new HashSet<EventEntitie>();
+		EventEntitie event = new EventEntitie();
 		event.setEventStart(new Date());
 		event.setEventStop(new Date());
 		event.setEventType(EventTypeE.bear);
@@ -59,9 +67,9 @@ public class OrganizerRepositoryTest {
 		
 		user.setEvents(events);
 		
-		repository.save(user);
+		userRepository.save(user);
 		
-		Person dbpost = repository.findOne(user.getUserId());
+		UserEntitie dbpost = userRepository.findOne(user.getUserId());
 		assertNotNull(dbpost);
 		assertNotNull(dbpost.getEvents());
 		Assert.assertEquals(1, dbpost.getEvents().size());

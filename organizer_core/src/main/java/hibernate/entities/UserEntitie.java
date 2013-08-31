@@ -1,20 +1,21 @@
 package hibernate.entities;
 
+
+
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Users")
-public class Person {
+@Table(name="User")
+public class UserEntitie {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -30,9 +31,8 @@ public class Person {
 //	@OneToMany
 //    @JoinColumn(name="users")
 	
-	@OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="USER_ID")
-	private Set<UserEvent> events;
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+	private Set<EventEntitie> events;
 
 	public Integer getUserId() {
 		return userId;
@@ -58,11 +58,11 @@ public class Person {
 		this.surname = surname;
 	}
 
-	public Set<UserEvent> getEvents() {
+	public Set<EventEntitie> getEvents() {
 		return events;
 	}
 
-	public void setEvents(Set<UserEvent> events) {
+	public void setEvents(Set<EventEntitie> events) {
 		this.events = events;
 	}
 }

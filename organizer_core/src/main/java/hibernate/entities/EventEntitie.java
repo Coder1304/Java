@@ -14,8 +14,8 @@ import javax.persistence.Table;
 import common.EventTypeE;
 
 @Entity
-@Table(name="Events")
-public class UserEvent {
+@Table(name="Event")
+public class EventEntitie {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="EVENT_ID",nullable=false)
@@ -31,10 +31,8 @@ public class UserEvent {
 	EventTypeE eventType;
 		
 	@ManyToOne
-    @JoinColumn(name="USER_ID", 
-            insertable=false, updatable=false, 
-            nullable=false)
-	Person user;
+    @JoinColumn(name="USER_ID")
+	UserEntitie user;
 
 	public Integer getEventId() {
 		return eventId;
@@ -68,11 +66,11 @@ public class UserEvent {
 		this.eventType = eventType;
 	}
 
-	public Person getUser() {
+	public UserEntitie getUser() {
 		return user;
 	}
 
-	public void setUser(Person user) {
+	public void setUser(UserEntitie user) {
 		this.user = user;
 	}	
 }
