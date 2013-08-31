@@ -3,6 +3,7 @@ package hibernate;
 import static org.junit.Assert.assertNotNull;
 import hibernate.entities.EventEntitie;
 import hibernate.entities.UserEntitie;
+import hibernate.repositories.EventRepository;
 import hibernate.repositories.UserRepository;
 
 import java.util.Date;
@@ -26,6 +27,9 @@ public class UserRepositoryTest {
 
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	EventRepository eventRepository;
 	
 	public UserRepository getUserRepository() {
 		return userRepository;

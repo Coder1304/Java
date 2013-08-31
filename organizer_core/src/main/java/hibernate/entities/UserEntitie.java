@@ -4,6 +4,7 @@ package hibernate.entities;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,10 +29,7 @@ public class UserEntitie {
 	@Column(name="SURNAME")
 	String surname;
 	
-//	@OneToMany
-//    @JoinColumn(name="users")
-	
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
 	private Set<EventEntitie> events;
 
 	public Integer getUserId() {
