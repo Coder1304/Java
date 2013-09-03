@@ -1,6 +1,6 @@
 package hibernate;
 
-import static org.junit.Assert.assertNotNull;
+import static org.fest.assertions.Assertions.assertThat;
 import hibernate.entities.EventEntitie;
 import hibernate.entities.UserEntitie;
 import hibernate.repositories.EventRepository;
@@ -9,8 +9,6 @@ import hibernate.repositories.UserRepository;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
-import junit.framework.Assert;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -49,11 +47,10 @@ public class UserRepositoryTest {
 		userRepository.save(user);
 		
 		UserEntitie dbpost = userRepository.findOne(user.getUserId());
-		assertNotNull(dbpost);
-		System.out.println(dbpost.getUserId()+" "+dbpost.getName()+" "+dbpost.getSurname());
+		assertThat(dbpost).isNotNull();
 	}
 	
-	@SuppressWarnings("deprecation")
+
 	@Test
 	public void InsertUserEvent() {
 		UserEntitie user = new UserEntitie();
@@ -74,10 +71,9 @@ public class UserRepositoryTest {
 		userRepository.save(user);
 		
 		UserEntitie dbpost = userRepository.findOne(user.getUserId());
-		assertNotNull(dbpost);
-		assertNotNull(dbpost.getEvents());
-		Assert.assertEquals(1, dbpost.getEvents().size());
-		System.out.println(dbpost.getUserId()+" "+dbpost.getName()+" "+dbpost.getSurname());
+		
+		assertThat(dbpost).isNotNull();
+		assertThat(dbpost.getEvents()).isNotNull().hasSize(1);
 	}
 
 }

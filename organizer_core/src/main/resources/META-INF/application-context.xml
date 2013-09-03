@@ -41,11 +41,4 @@
 
 	<!-- Jpa Repositories -->
 	<jpa:repositories base-package="hibernate.repositories"></jpa:repositories>
-	
-	<!-- test 
-	<bean id="personTest"
-		class="hibernate.PersonRepositoryTest">
-		<property name="personRepository" value="hibernate.repositories.PersonRepository" />
-	</bean>
-	-->
 </beans>
