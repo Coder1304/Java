@@ -21,17 +21,17 @@ public class EventEntitie {
 	@Column(name="EVENT_ID",nullable=false)
 	Integer eventId;
 	
-	@Column(name="EVENT_START")
+	@Column(name="EVENT_START",nullable = false)
 	Date eventStart;
 	
-	@Column(name="EVENT_STOP")
+	@Column(name="EVENT_STOP",nullable = false)
 	Date eventStop;
 	
-	@Column(name="EVENT_TYPE")
+	@Column(name="EVENT_TYPE",nullable = false)
 	EventTypeE eventType;
 		
 	@ManyToOne
-    @JoinColumn(name="USER_ID")
+    @JoinColumn(name="USER_ID",nullable = false)
 	UserEntitie user;
 
 	public Integer getEventId() {
@@ -73,4 +73,15 @@ public class EventEntitie {
 	public void setUser(UserEntitie user) {
 		this.user = user;
 	}	
+	
+	public EventEntitie() {
+		super();
+	}
+	
+	public EventEntitie(EventTypeE type, Date start, Date stop, UserEntitie user){
+		this.eventType 		= type; 
+		this.eventStart 	= start;
+		this.eventStop 		= stop;
+		this.user 			= user;
+	}
 }
