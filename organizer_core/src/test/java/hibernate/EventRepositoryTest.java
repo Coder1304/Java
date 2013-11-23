@@ -1,6 +1,6 @@
 package hibernate;
 
-import static org.fest.assertions.Assertions.assertThat;
+//import static org.fest.assertions.Assertions.assertThat;
 import hibernate.entities.EventEntitie;
 import hibernate.entities.UserEntitie;
 import hibernate.repositories.EventRepository;
@@ -17,11 +17,11 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import common.EventTypeE;
 
-import configuration.AppConfigurationContext;
+import configuration.TestConfigurationContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader=AnnotationConfigContextLoader.class,
-						classes=AppConfigurationContext.class)
+						classes=TestConfigurationContext.class)
 //@ContextConfiguration(locations="classpath:META-INF/test-context.xml")
 public class EventRepositoryTest {
 

@@ -19,7 +19,7 @@ import org.springframework.util.Log4jConfigurer;
 
 @Configuration
 @EnableJpaRepositories("hibernate.repositories")
-public class AppConfigurationContext {
+public class TestConfigurationContext {
 
 	@Bean
 	DriverManagerDataSource datasource() {
