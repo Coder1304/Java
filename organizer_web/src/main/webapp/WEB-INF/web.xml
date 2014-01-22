@@ -14,12 +14,18 @@
 
     <init-param>
       <param-name>UI</param-name>
-      <param-value>ui.DefaultUI</param-value>
-    </init-param> 
+      <param-value>org.simon.MyVaadinUI</param-value>
+    </init-param>
+
+    <!-- If not using the default widget set-->
+    <init-param>
+      <param-name>widgetset</param-name>
+      <param-value>org.simon.AppWidgetSet.gwt.xml</param-value>
+    </init-param>
   </servlet>
- 
+
   <servlet-mapping>
     <servlet-name>myservlet</servlet-name>
-   <url-pattern>/*</url-pattern>
+    <url-pattern>/*</url-pattern>
  </servlet-mapping>
 </web-app>

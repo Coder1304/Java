@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Vaadin-Package-Version: 1
+Vaadin-Addon: vaadin-calendar-2.0.0.jar
+Implementation-Vendor: Vaadin Ltd
+Implementation-Title: Vaadin Calendar
+Implementation-Version: 2.0.0
+Class-Path: 
+
