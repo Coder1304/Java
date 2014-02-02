@@ -6,11 +6,10 @@
 	    This file is automatically updated based on new dependencies by the
 	    goal "vaadin:update-widgetset".
 	-->
-	
-
-	<inherits name="com.vaadin.addon.calendar.gwt.CalendarWidgetset"/>
 
 	<!-- Inherit DefaultWidgetSet -->
 	<inherits name="com.vaadin.DefaultWidgetSet" /> 
+	
+	 <set-property name="user.agent" value="safari"/>
     
 </module>
