@@ -38,17 +38,7 @@ public class ActionHandler implements Action.Handler{
         actionList.add(new DeleteEventAction());
         actionList.add(new MonthViewAction());
         
-        System.out.println("Size of List array: "+actionList.size());
-        
-        Action [] tmp = actionList.toArray(new Action[0]);
-        
-        System.out.println("Size of out array: "+tmp.length);
-        
-        AddEventAction add = new AddEventAction();
-        
-        Action[] tmp2 = { new AddEventAction(), new DeleteEventAction(), new MonthViewAction()};
-        
-        return tmp2;
+        return actionList.toArray(new Action[0]);
 	}
 
 	@Override

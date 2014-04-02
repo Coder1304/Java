@@ -65,8 +65,6 @@ public class MyVaadinUI extends UI {
 		tmpDate = DateProvider.getLastDayOfWeek(new Date());
 		System.out.println("End Date: "+tmpDate);
 		cal.setEndDate(DateProvider.getLastDayOfWeek(new Date()));
-//		cal.setStartDate(date);
-//		cal.setEndDate(date);
 		cal.setEventProvider(EventProvider.getInstance());
 
 		cal.setHandler(new DateClickHandler());
