@@ -14,6 +14,7 @@
 		<vaadin.version>7.1.7</vaadin.version>
 		<vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
 		<jettyVersion>7.2.0.v20101020</jettyVersion>
+		<powermock.version>1.5.4</powermock.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -95,6 +96,33 @@
 			<artifactId>jetty-server</artifactId>
 			<version>${jettyVersion}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8.8</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -106,6 +134,9 @@
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
 				</configuration>
 			</plugin>
 			<!-- As we are doing "inplace" GWT compilation, ensure the widgetset -->
