@@ -2,7 +2,6 @@ package org.actions;
 
 import org.events.Event;
 
-import com.vaadin.event.Action;
 import com.vaadin.ui.Calendar;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.components.calendar.event.CalendarEvent;

@@ -1,8 +1,5 @@
 package org.handlers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.actions.AddEventAction;
 import org.actions.BaseAction;
 import org.actions.DeleteEventAction;
@@ -18,12 +15,11 @@ public class ActionHandler implements Action.Handler{
 
 	private static final long serialVersionUID = 1L;
 	
-     List<Action> actionList ;
+     private Action[] actionArray = {new AddEventAction(), new DeleteEventAction(), new MonthViewAction()};
      private Calendar cal;
      
     public ActionHandler(Calendar calendar) {
 		this.cal = calendar;
-		actionList = new ArrayList<Action>();
 	}
 
 
@@ -33,12 +29,7 @@ public class ActionHandler implements Action.Handler{
         if (! (target instanceof CalendarDateRange) )
             return new Action[0];
         
-        actionList.clear();
-        actionList.add(new AddEventAction());
-        actionList.add(new DeleteEventAction());
-        actionList.add(new MonthViewAction());
-        
-        return actionList.toArray(new Action[0]);
+        return actionArray;
 	}
 
 	@Override
